@@ -3,9 +3,9 @@ import 'package:riverpod_statenotifier_tutorial/application/weather_notifier.dar
 import 'package:riverpod_statenotifier_tutorial/infrastructure/model/data_api.dart';
 import 'package:riverpod_statenotifier_tutorial/infrastructure/weather_repository.dart';
 
-final weatherRepositoryProvider = Provider<WeatherRepository>(
+final weatherRepositoryProvider = Provider<FakeWeatherRepository>(
   (ref) => FakeWeatherRepository(dataApi: DataApi(
-  url: "https://jsonplaceholder.typicode.com/photos",
+    url: "https://jsonplaceholder.typicode.com/photos",
     data: {},
     method: "get",
   )),

@@ -7,7 +7,7 @@ import 'model/weather.dart';
 
 abstract class WeatherRepository {
 
- // Future<Weather> fetchWeather(String cityName);
+  Future<List<Object>> fetchWeather(String cityName);
 }
 
 class FakeWeatherRepository implements WeatherRepository {
@@ -15,9 +15,10 @@ class FakeWeatherRepository implements WeatherRepository {
   ///my
   final DataApi dataApi;
 
-  ///my
+ ///my
   FakeWeatherRepository({@required this.dataApi})
       : assert(dataApi != null);
+
 
   // @override
   // Future<Weather> fetchWeather(String cityName) {
@@ -49,6 +50,12 @@ class FakeWeatherRepository implements WeatherRepository {
   ///my
   Future<List<Object>> getData() async {
     return await dataApi.fetchData();
+  }
+
+  @override
+  Future<List<Object>> fetchWeather(String cityName) {
+    // TODO: implement fetchWeather
+    return  dataApi.fetchData();
   }
 }
 

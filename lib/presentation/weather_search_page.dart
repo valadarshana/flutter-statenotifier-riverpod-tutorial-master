@@ -44,7 +44,7 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
               } else if (state is WeatherLoaded) {
                 List<Object> responseData=state.responseData;
                print('what response get $responseData');
-                // return buildColumnWithData(state.weather);
+                 return Container();
               } else {
                 // (state is WeatherError)
                 return buildInitialInput();

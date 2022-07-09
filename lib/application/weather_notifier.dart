@@ -48,17 +48,17 @@ class WeatherError extends WeatherState {
 }
 
 class WeatherNotifier extends StateNotifier<WeatherState> {
-  //final WeatherRepository _weatherRepository;
+  final WeatherRepository _weatherRepository;
   ///my
   final FakeWeatherRepository dataRepository;
 ///my
-  WeatherNotifier(WeatherRepository watch, {@required this.dataRepository}) :super(WeatherInitial());
+  WeatherNotifier(this._weatherRepository, {@required this.dataRepository}) :super(WeatherInitial());
 
   Future<void> getWeather(String cityName) async {
     try {
       state = WeatherLoading();
       print('loadeded $dataRepository');
-      List<Object> responseData = await dataRepository.getData();
+      List<Object> responseData = await _weatherRepository.fetchWeather(cityName);
       state = WeatherLoaded(responseData);
     } on NetworkException {
       state = WeatherError("Couldn't fetch weather. Is the device online?");
