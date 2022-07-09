@@ -30,6 +30,7 @@ class DataApi {
     var responseBody = await http.Response.fromStream(response);
     fetchData.add(json.decode(responseBody.body));
 
+
     //var responseData = jsonDecode(response.body);
     //print("show Response Data:$responseData");
     //fetchData.add(responseData);
